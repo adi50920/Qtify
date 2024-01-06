@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { fetchTopAlbums, fetchNewAlbums, fetchAllSongs } from "../apicalls/Apicalls";
-import NavBar from "../components/NavBar/NavBar.jsx";
+import {
+  fetchTopAlbums,
+  fetchNewAlbums,
+  fetchAllSongs,
+} from "../apicalls/Apicalls";
+import navbarContainer from "../components/navbarContainer/navbarContainer.jsx";
 import SearchBar from "../components/SearchBar/SearchBar.jsx";
 import styles from "./LandingPage.module.css";
 import HeroSection from "../components/HeroPage/HeroSection.jsx";
@@ -9,8 +13,6 @@ import FilterTabs from "../components/FilterTabs/FilterTabs.jsx";
 import { accordionData } from "../config/helper-config.js";
 import CustomAccordion from "../components/Accordion/CustomAccordion.jsx";
 import Footer from "../components/Footer/Footer.jsx";
-
-
 
 const LandingPage = () => {
   const [topAlbumData, setTopAlbumData] = useState([]);
@@ -72,7 +74,12 @@ const LandingPage = () => {
   const dropdownData = topAlbumData?.concat(newAlbumData);
   return (
     <>
-      <NavBar data={dropdownData} logo={true} search={true} feedback={true} />
+      <navbarContainer
+        data={dropdownData}
+        logo={true}
+        search={true}
+        feedback={true}
+      />
       <div className={styles.landingPageSearchWrapper}>
         <SearchBar
           placeholder="Search a album of your choice"
@@ -99,7 +106,8 @@ const LandingPage = () => {
         <div>
           <h3 className={styles.tabsTitle}>Songs</h3>
           <FilterTabs
-           data={allSongsData} loadingState={loadingState.allSongs}
+            data={allSongsData}
+            loadingState={loadingState.allSongs}
           />
         </div>
       </div>

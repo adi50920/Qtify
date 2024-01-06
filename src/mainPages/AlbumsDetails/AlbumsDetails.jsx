@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./AlbumsDetails.module.css";
-import NavBar from "../../components/NavBar/NavBar";
+import navbarContainer from "../../components/navbarContainer/navbarContainer";
 import { ReactComponent as LeftArrowIcon } from "../../assets/LeftArrow.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -18,9 +18,9 @@ const AlbumsDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
 
-  const onPageChange=(pageNo)=>{
-    setPage(pageNo)
-  }
+  const onPageChange = (pageNo) => {
+    setPage(pageNo);
+  };
 
   const totalTimeInMs = useMemo(() => {
     return albumsDetails?.songs?.reduce((sum, item) => {
@@ -59,7 +59,7 @@ const AlbumsDetails = () => {
   }, [slug]);
   return (
     <div className={styles.wrapper}>
-      <NavBar logo={true} feedback={true} />
+      <navbarContainer logo={true} feedback={true} />
 
       <div className={styles.leftArrowWrapper}>
         <div className={styles.leftArrow} onClick={() => navigate("/")}>
@@ -94,10 +94,10 @@ const AlbumsDetails = () => {
           {/* Paginations */}
           <div className={styles.pagination_container}>
             <CustomPagination
-            page={page}
-            pageLimit={10}
-            totalCount={albumsDetails?.songs?.length}
-            onPageChange={onPageChange}
+              page={page}
+              pageLimit={10}
+              totalCount={albumsDetails?.songs?.length}
+              onPageChange={onPageChange}
             />
           </div>
           {/* Table */}

@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import styles from "./NavBar.module.css";
+import styles from "./navbarContainer.module.css";
 import Logo from "../Logo/Logo";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import FeedBackModal from "../FeedBackModal/FeedBackModal";
 import { useNavigate } from "react-router-dom";
-const NavBar = ({ data, logo = false, search = false, feedback = false }) => {
+const navbarContainer = ({
+  data,
+  logo = false,
+  search = false,
+  feedback = false,
+}) => {
   const [isFeedBackModalOpen, setIsFeedBackModalOpen] = useState(false);
   const navigate = useNavigate();
   const toggleFeedBackModal = (value = false) => {
@@ -16,7 +21,7 @@ const NavBar = ({ data, logo = false, search = false, feedback = false }) => {
   //   };
   return (
     <div className={styles.wrapper}>
-      <nav className={styles.navbar}>
+      <nav className={styles.navbarContainerContainer}>
         <div className={styles.logoWrapper} onClick={() => navigate(`/`)}>
           {logo ? <Logo id={styles.logo} /> : null}
         </div>
@@ -46,4 +51,4 @@ const NavBar = ({ data, logo = false, search = false, feedback = false }) => {
   );
 };
 
-export default NavBar;
+export default navbarContainer;
