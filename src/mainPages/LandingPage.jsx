@@ -4,7 +4,7 @@ import {
   fetchNewAlbums,
   fetchAllSongs,
 } from "../apicalls/Apicalls";
-import navbarContainer from "../components/navbarContainer/navbarContainer.jsx";
+import NavBar from "../components/NavBar/NavBar.jsx";
 import SearchBar from "../components/SearchBar/SearchBar.jsx";
 import styles from "./LandingPage.module.css";
 import HeroSection from "../components/HeroPage/HeroSection.jsx";
@@ -74,12 +74,7 @@ const LandingPage = () => {
   const dropdownData = topAlbumData?.concat(newAlbumData);
   return (
     <>
-      <navbarContainer
-        data={dropdownData}
-        logo={true}
-        search={true}
-        feedback={true}
-      />
+      <NavBar data={dropdownData} logo={true} search={true} feedback={true} />
       <div className={styles.landingPageSearchWrapper}>
         <SearchBar
           placeholder="Search a album of your choice"

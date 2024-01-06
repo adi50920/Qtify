@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./AlbumsDetails.module.css";
-import navbarContainer from "../../components/navbarContainer/navbarContainer";
+import NavBar from "../../components/NavBar/NavBar";
 import { ReactComponent as LeftArrowIcon } from "../../assets/LeftArrow.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -59,7 +59,7 @@ const AlbumsDetails = () => {
   }, [slug]);
   return (
     <div className={styles.wrapper}>
-      <navbarContainer logo={true} feedback={true} />
+      <NavBar logo={true} feedback={true} />
 
       <div className={styles.leftArrowWrapper}>
         <div className={styles.leftArrow} onClick={() => navigate("/")}>
