@@ -14,7 +14,7 @@ const NavBar = ({ data, logo = false, search = false, feedback = false }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <>
       <nav className={styles.navbarContainer}>
         <div className={styles.logoWrapper} onClick={() => navigate(`/`)}>
           {logo && <Logo id={styles.logo} />}
@@ -32,16 +32,15 @@ const NavBar = ({ data, logo = false, search = false, feedback = false }) => {
             className={styles.nav_link}
             onClick={() => toggleFeedBackModal(true)}
           >
-            Feedback
+            Give Feedback
           </div>
         )}
       </nav>
       <FeedBackModal
         isOpen={isFeedBackModalOpen}
-        // onSuccess={_onSuccess}
         onDismiss={() => toggleFeedBackModal(false)}
       />
-    </div>
+    </>
   );
 };
 
